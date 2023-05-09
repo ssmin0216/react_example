@@ -9,11 +9,11 @@ const DiaryItem = ({
                      emotion,
                      id
                    }) => {
-  const [isEdit, setIsEdit] = useState(false);
-  const toggleIsEdit = () => setIsEdit(!isEdit);
-
-  const [localContent, setLocalContent] = useState(content);
   const localContentInput = useRef();
+  const [localContent, setLocalContent] = useState(content);
+  const [isEdit, setIsEdit] = useState(false);
+
+  const toggleIsEdit = () => setIsEdit(!isEdit);
 
   const handleRemove = () => {
     if (window.confirm(`${id}번 째 일기를 정말 삭제하시겠습니까?`)) {
@@ -36,27 +36,29 @@ const DiaryItem = ({
       onEdit(id, localContent);
       toggleIsEdit(false);
     }
-  }
+  };
 
   return (
     <div className="DiaryItem">
       <div className="info">
-        <span>
+        <span className="author_info">
           작성자 : {author} | 감정점수 : {emotion}
         </span>
         <br/>
-        <span className="date">{new Date(created_date).toLocaleString()}</span>
+        <span className="date">
+          {new Date(created_date).toLocaleString()}
+        </span>
       </div>
       <div className="content">
         {isEdit ? (
-          <>
-            <textarea
-              ref={localContentInput}
-              value={localContent}
-              onChange={(e) => setLocalContent(e.target.value)}
-            />
-          </>
-        ) : <>{content}</>}
+          <textarea
+            ref={localContentInput}
+            value={localContent}
+            onChange={(e) => setLocalContent(e.target.value)}
+          />
+        ) : (
+          content
+        )}
       </div>
       {isEdit ? (
         <>
