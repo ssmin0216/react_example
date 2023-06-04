@@ -6,7 +6,7 @@ const RouteTest = () => {
     <br/>
     <Link to={"/diary"}>Diary</Link>
     <br/>
-    <Link to={"/new"}>New</Link>¬
+    <Link to={"/new"}>New</Link>
     <br/>
     <Link to={"/edit"}>Edit</Link>
   </>
