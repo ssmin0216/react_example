@@ -14,7 +14,9 @@ const Home = () => {
   const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
   useEffect(() => {
+    console.log(`HOME`);
     if (diaryList.length >= 1) {
+      setData(() => []);
       const firstDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth(),
@@ -32,10 +34,6 @@ const Home = () => {
       );
     }
   }, [diaryList, curDate]);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   const increaseMonth = () => {
     setCurDate(
