@@ -50,7 +50,6 @@ const Home = () => {
     );
   };
 
-
   return (
     <div>
       <MyHeader
