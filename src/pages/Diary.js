@@ -1,7 +1,6 @@
 import {useNavigate, useParams} from 'react-router-dom';
 import {DiaryStateContext} from "../App";
 import {useContext, useEffect, useState} from "react";
-import DiaryItem from "../components/DiaryItem";
 import {getStringDate} from "../util/date";
 import MyButton from "../components/MyButton";
 import MyHeader from "../components/MyHeader";
